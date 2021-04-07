@@ -6,10 +6,12 @@ const makechar = (char) => {
 
     const name = char["name"]
     const element = char["element"]
+    const id = char["id"]
 
     obj.innerHTML = `
         <p>Name: ${name}</p>
         <p>Element: ${element}</p>
+        <button class="details" onclick="window.location='/charsite/index.html?id=${id}'">Details</button>
     `
 
     container.appendChild(obj)
@@ -36,15 +38,7 @@ const search = () => {
 }
 
 const getchars = (got) => {
-    const charlib = [{"name":"Razor", "element":"Elektro"},
-                    {"name":"Ningguang", "element":"Geo"},
-                    {"name":"Amber", "element":"Pyro"},
-                    {"name":"Barbara", "element":"Hydro"},
-                    {"name":"Saccharose", "element":"Anemo"},
-                    {"name":"Xiangling", "element":"Pyro"},
-                    {"name":"Noelle", "element":"Geo"},
-                    {"name":"Beidou", "element":"Elektro"},
-                    {"name":"Kaeya", "element":"Kryo"}];
+    const charlib = data
     let results = []
 
     for (let i = 0; i<charlib.length; i++) {
@@ -54,6 +48,7 @@ const getchars = (got) => {
     }
     return results
 }
+
 
 const chars = getchars("")
 
